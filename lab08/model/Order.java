@@ -1,9 +1,13 @@
 package model;
 
 public class Order {
+
     private int number;
+
     private Client client;
+
     private String orderTime;
+
     private Pizza[] pizzas;
 
     public Order() {}
@@ -46,6 +50,7 @@ public class Order {
     public void setPizzas(Pizza[] pizzas) {
         this.pizzas = pizzas;
     }
+
     public float getCost() {
         float cost = 0;
         for (int i = 0; i < pizzas.length; i++) {

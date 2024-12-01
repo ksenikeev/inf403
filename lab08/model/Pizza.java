@@ -1,10 +1,15 @@
 package model;
 
 public class Pizza {
+
     private String name;
+
     private int weight;
+
     private float price;
+
     private int size;
+
     private Ingredient[] ingredients;
 
     public Pizza() {}
@@ -25,14 +30,6 @@ public class Pizza {
         return weight;
     }
 
-    public void setPrice(float price) {
-        this.price = price;
-    }
-
-    public void setSize(int size) {
-        this.size = size;
-    }
-
     public Ingredient[] getIngredients() {
         return ingredients;
     }
@@ -51,6 +48,14 @@ public class Pizza {
 
     public void setWeight(int weight) {
         this.weight = weight;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setIngredients(Ingredient[] ingredients) {

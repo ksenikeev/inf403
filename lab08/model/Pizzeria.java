@@ -1,8 +1,11 @@
 package model;
 
 public class Pizzeria {
+
     private String name;
+
     private String address;
+
     private int rating;
 
     public Pizzeria() {}
