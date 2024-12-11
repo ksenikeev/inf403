@@ -1,4 +1,4 @@
-package ru.itis.inf403.lab10;
+package ru.itis.inf403.lab10.model;
 
 public class Game {
     private int fieldWidth;
@@ -30,10 +30,10 @@ public class Game {
             }
 
             for (int i = 0; i < players.length; i++){
-                if (players[i].x >= finishX
-                        && players[i].x <= finishX + finishFieldWight
-                        && players[i].y >= finishY
-                        && players[i].y <= finishY + finishFieldHeight){
+                if (players[i].getX() >= finishX
+                        && players[i].getX() <= finishX + finishFieldWight
+                        && players[i].getY() >= finishY
+                        && players[i].getY() <= finishY + finishFieldHeight){
                     System.out.println(players[i]);
                     return players[i];
                 }
