@@ -4,6 +4,7 @@ public class Teacher extends Person {
     private String[] disciplines;
 
     public Teacher(String lastName, String firstName, String middleName, int age) {
+        // Обращение к конструктору родителя Person
         super(lastName, firstName, middleName, age);
 /*
         this.lastName = lastName;
