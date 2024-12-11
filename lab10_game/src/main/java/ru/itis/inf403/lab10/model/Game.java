@@ -34,7 +34,6 @@ public class Game {
                         && players[i].getX() <= finishX + finishFieldWight
                         && players[i].getY() >= finishY
                         && players[i].getY() <= finishY + finishFieldHeight){
-                    System.out.println(players[i]);
                     return players[i];
                 }
             }

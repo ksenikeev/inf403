@@ -15,11 +15,10 @@ public class Main {
         entities[0] = new Ant(0, 0);
         Entity.setFieldSize(fieldWidth, fieldHeigth);
 
-       Game game = new Game(fieldWidth, fieldHeigth,
+        Game game = new Game(fieldWidth, fieldHeigth,
                finishFieldWight, finishFieldHeight,
                finishX, finishY, entities);
-
-       Entity champion = game.start();
-
+        Entity champion = game.start();
+        System.out.println(champion);
     }
 }
