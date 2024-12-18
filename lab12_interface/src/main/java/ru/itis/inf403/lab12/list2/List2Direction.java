@@ -14,7 +14,6 @@ public class List2Direction {
             }
             current.next = new Node(value);
             current.next.prev = current;
-
         }
     }
 
