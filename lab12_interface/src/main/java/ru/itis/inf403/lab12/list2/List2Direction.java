@@ -5,7 +5,17 @@ public class List2Direction {
     private Node first;
 
     public void add(Apple value) {
+        if (first == null) {
+            first = new Node(value);
+        } else {
+            Node current = first;
+            while (current.next != null) {
+                current = current.next;
+            }
+            current.next = new Node(value);
+            current.next.prev = current;
 
+        }
     }
 
     public boolean add(int position, Apple value) {

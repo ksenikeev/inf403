@@ -22,4 +22,8 @@ public class Apple implements CanCompare {
     public int getPrice() {
         return price;
     }
+    @Override
+    public String toString() {
+        return color + " " + weight + " " + kind + " " + price;
+    }
 }

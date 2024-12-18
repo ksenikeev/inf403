@@ -19,5 +19,18 @@ public class Main {
 
         list2.print();
 
+        System.out.println(list2.pop());
+
+        list2.print();
+
+        System.out.println(list2.remove(2));
+
+        list2.print();
+
+        list2.printReverse();
+
+        list2.sort();
+
+        list2.print();
     }
 }
