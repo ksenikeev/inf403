@@ -1,5 +1,24 @@
 # Заметки по практике Информатика 11-403
 
+## 21.12.2024
+Построить функцию, сортирующую произвольный массив
+
+```java
+interface ICompareObject {
+    int compare(Object var1, Object var2);
+}
+
+public class ArrayUtils {
+    
+    public static void sort(Object[] array, ICompareObject comparator) {
+        for (...)
+            for (...)
+            if (comparator.compare(array[j], array[j + 1]) > 0) {
+                swap(j, j + 1);
+            }
+    }
+} 
+```
 ##  interface
 
 Задание
