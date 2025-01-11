@@ -6,6 +6,7 @@ public class Main4 {
         Apple[] apples = {new Apple(120, "Голд"),
                 new Apple(110, "Семеринка")};
 
+        // Создание экземпляра анонимного класса
         ICompareObject comparator = new ICompareObject() {
             @Override
             public int compare(Object var1, Object var2) {
