@@ -1,0 +1,36 @@
+package ru.itis.inf403.lab16;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+
+public class TestException1 {
+    public static void main(String[] args) {
+
+
+        double num = 0;
+        boolean flag = true;
+
+        while (flag) {
+
+            try {
+                num = InputModule.input();
+                flag = false;
+
+                num = 1 / (int)num;
+
+            } catch (InputMismatchException e) {
+                System.out.println("Неправильный ввод, повторите");
+            } catch (ArithmeticException e) {
+                System.out.println("Введите отличное от 0 значение");
+                flag = true;
+            } catch (NotPositiveNumber e) {
+                System.out.println("Число должно быть позитивным");
+                flag = true;
+            }
+        }
+
+
+        System.out.println(num);
+
+    }
+}
