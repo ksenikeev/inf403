@@ -8,6 +8,11 @@ public enum Color {
     blue,
     yellow
 }
+
+public class Color {
+    public static Color red = new Color(),
+            green = new Color();
+}
 ```
 
 ### Обращение к элементам
