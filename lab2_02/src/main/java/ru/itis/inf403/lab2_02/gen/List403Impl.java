@@ -16,6 +16,7 @@ public class List403Impl<T> implements List403<T> {
 
     }
     public void add(T element, int position) throws IndexOutOfBoundsException{
+        System.nanoTime();
         if (position > size || position < 0){
             throw new IndexOutOfBoundsException();
         }

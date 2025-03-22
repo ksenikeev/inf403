@@ -9,11 +9,11 @@ public class ObjectListTest {
         List403Impl<Integer> list = new List403Impl<Integer>();
 
         list.add(1);
-        list.add("2");
+        list.add(2);
         list.add(3);
 
         System.out.println(list);
 
-        System.out.println((int)(list.get(0)) + (int)(list.get(1)));
+        System.out.println(list.get(0) + list.get(1));
     }
 }
