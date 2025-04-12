@@ -1,6 +1,6 @@
 package ru.itis.inf403.lab2_04;
 
-public interface Map403<K,V> {
+public interface Map403<K,V> extends Iterable<Map403.Entry<K, V>>  {
     void put(K key, V value);
 
     V get(K key);
