@@ -17,6 +17,8 @@ public class Main {
         list.add(12);
 
         list.sort((o1, o2) -> o1 - o2);
+
+
         list.forEach(System.out::println);
 
         list.sort(new Comparator<Integer>() {
@@ -33,5 +35,11 @@ public class Main {
             }
         });
 
+        list.forEach(a -> System.out.println(a));
+        list.forEach(System.out::println);
+
+
+
+        // a -> object.method(a) ~ object::method
     }
 }
