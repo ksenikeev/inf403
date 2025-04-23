@@ -7,6 +7,9 @@ import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class MainBooking2 {
 
@@ -15,7 +18,8 @@ public class MainBooking2 {
         Bookings bookings =
                 mapper.readValue(new File("bookings.json"), Bookings.class);
 
-        printChild(bookings);
+        //printChild(bookings);
+        printHotels(bookings);
     }
 
     public static void printChild(Bookings bookings) {
@@ -33,5 +37,20 @@ public class MainBooking2 {
             throw new RuntimeException(e);
         }
 
+    }
+
+    public static void printHotels(Bookings bookings) {
+        Map<String, Integer> result =
+                bookings.getBookings()
+                .stream()
+                .collect(Collectors.toMap(
+                        b -> b.getHotel().getName(),
+                        b -> 1,
+                        (v1,v2) -> v1+v2)
+                        //мяу
+                );
+        result.entrySet()
+                .stream()
+                .forEach(e -> System.out.println(e.getKey() + " " + e.getValue()));
     }
 }
