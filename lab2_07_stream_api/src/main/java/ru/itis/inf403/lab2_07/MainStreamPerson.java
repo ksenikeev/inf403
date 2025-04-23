@@ -2,6 +2,7 @@ package ru.itis.inf403.lab2_07;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.function.Consumer;
 import java.util.stream.Collectors;
 
@@ -9,45 +10,24 @@ public class MainStreamPerson {
     public static void main(String[] args) {
 
         List<Person> persons = new ArrayList<>();
-
         initPersonList(persons);
 
-        // Получить младшего из людей
-        Person little = persons
-                .stream()
-                .min((p1,p2) -> p1.getAge() - p2.getAge()).get();
+        // Найти младшего
+        Optional<Person> person =
+                persons.stream().min((p1, p2) -> p1.getAge() - p2.getAge());
 
-        System.out.println(little);
+        System.out.println(person.get());
 
-        // Получить список имен людей в верхнем регистре
-        List<String> names = persons.stream() // обратились к "потоку"
-                .map(p -> p.getName().toUpperCase()) // описали преобразование элементов
-                .collect(Collectors.toList()); // терминальный метод - создание новой коллекции
+        System.out.println(person.orElse(new Person("Новый", 0)));
 
-        Consumer<String> consumer = s -> System.out.println(s);
+        // Вывести только имена заглавными буквами
+        persons
+                .stream() // Stream<Person>
+                .map(p -> p.getName().toUpperCase()) // Stream<String>
+                .sorted() // сортируем данные
+                .toList() // List<String>
+                .forEach(s -> System.out.println(s));
 
-        names.stream().forEach(System.out::println);
-
-        long size = persons
-                .stream()
-                .count();
-        System.out.println(size);
-
-        List<Person> pNamePersons = persons
-                .stream()
-                .filter(s -> s.getName().charAt(0) == 'П')
-                .toList();
-        System.out.println(pNamePersons);
-
-        List<Integer> lenNames = persons
-                .stream()
-                .map(s -> s.getName().length())
-                .distinct()
-                .toList();
-        System.out.println(lenNames);
-        persons.stream()
-                .sorted((p1,p2) -> p1.getName().compareTo(p2.getName()))
-                .toList().forEach(System.out::println);
     }
 
     private static void initPersonList(List<Person> persons) {

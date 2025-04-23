@@ -2,7 +2,7 @@
 
 1. Функциональное программирование можно определить как набор идей, в которых базовым понятием является функция:
 
-```
+```java
     x -> f(x)
 ```
 
@@ -14,8 +14,8 @@
 
 5. Отложенные вычисления
 
-```
-    studentList.filter_by_group("11-400").sort_by_name(ascent).filter_by_gender(male).execute()
+```java
+    studentList.filter_by_group("11-403").sort_by_name(ascent).filter_by_gender(male).execute()
 ```
 
 6. Лямбда исчисление - основа функционального стиля во многих языках
@@ -29,16 +29,15 @@
 
 Удобно применять тогда, когда код укладывается в шаблон:
 
-```
+```java
     source -> operation -> operation -> operation -> fin
 ```
-- source: `Collection`, `Iterator`
-- operation: `filter`, `sort`, `map`
-- fin: `collections`, `locals`, `count`, `forEach`
+- source: `Collection`, `Iterator` (источник данных)
+- operation: `filter`, `sort`, `map`, ... (операции над данными: отбор, сортировка, преобразование)
+- fin: `collections`, `locals`, `count`, `forEach`, ... (формирование результата)
 
 ### Описание
-
-```
+```java
 public interface Stream<T> extends BaseStream<T, Stream<T>> { ...
 ```
 
@@ -62,6 +61,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> { ...
   `Stream<T>` получается `Stream<R>`
 * **distinct** - убирает из стрима дубликаты
 * **mapToDouble, mapToInt** - возвращают числовой стрим с дополнительными методами
+* flatMap(Function<T, Stream<R>> mapper) - преобразует набор стримов в один
 
 **Терминальные:**
 * **forEach** - применяет некоторое действие (не возвращающее значение) `void op(x)` к каждому элементу
@@ -73,12 +73,26 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> { ...
 * **collect** - возвращает коллекцию из элементов стрима (пример: `.collect(Collectors.toList())`)
 * **toList**
 * **toSet**
+*  Optional<T> reduce(BinaryOperator<T> accumulator)
+*  T reduce(T identity, BinaryOperator<T> accumulator)
+*  U reduce(U identity, BiFunction<U,? super T,U> accumulator, BinaryOperator<U> combiner)
+*  Collector<T, ?, M> toMap(Function<? super T, ? extends K> keyMapper,
+   Function<? super T, ? extends U> valueMapper,
+   BinaryOperator<U> mergeFunction)
+
+
+- Стрим из List: list.stream()
+- Стрим из Map: map.entrySet().stream()
+- Стрим из массива: Arrays.stream(array)
+- Стрим из указанных элементов: Stream.of("1", "2", "3")
+
+
 
 **Примеры**
 
 Младший человек из списка людей:
 
-```
+```java
     Person{ String name; Integer age}
     List<Person> persons = ...
     Person little = persons.stream().min((p1,p2) -> (p1.age.compareTo(p2.age))).get();
@@ -86,7 +100,7 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> { ...
 
 Средний возраст людей из списка:
 
-```
+```java
     Person{ String name; Integer age}
     List<Person> persons = ...
     double avg = persons.stream().mapToDouble(p -> (Double) p.age).average().getAsDouble();
@@ -96,3 +110,11 @@ public interface Stream<T> extends BaseStream<T, Stream<T>> { ...
         ArrayList<Integer> arrayList;
         LinkedList<Integer> linkedList;
         HashMap<Integer, String> hashMap;
+
+### Преобразования набора данных в набор другого типа
+```java
+    List<String> lst = ...;
+    lst.map()
+    
+```
+
