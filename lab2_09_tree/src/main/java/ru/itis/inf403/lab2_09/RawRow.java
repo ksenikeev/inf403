@@ -24,6 +24,10 @@ public class RawRow {
     // 23
     private String hypertension;
 
+    public boolean badRecord() {
+        return true;
+    }
+
     public String getRiskScoreCVRM() {
         return riskScoreCVRM;
     }
