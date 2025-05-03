@@ -1,82 +1,82 @@
 package ru.itis.inf403.lab2_09;
 
-public class RawRow {
+public class Row {
     // 6
-    private String riskScoreCVRM;
+    private Integer riskScoreCVRM;
     // 7
-    private String mdrd;
+    private Integer mdrd;
     // 9
-    private String glucoseFasting;
+    private Float glucoseFasting;
     // 11
-    private String totalCholesterol;
+    private Float totalCholesterol;
     // 13
-    private String systolicBloodPressure;
+    private Integer systolicBloodPressure;
     // 14
-    private String diastolicBloodPressure;
+    private Integer diastolicBloodPressure;
     // 16
-    private String bmi;
+    private Integer bmi;
     // 18
     private String psCVRM;
     // 19
     private String smokingStatus;
     // 22
-    private String age;
+    private Integer age;
     // 23
     private String hypertension;
 
-    public String getRiskScoreCVRM() {
+    public Integer getRiskScoreCVRM() {
         return riskScoreCVRM;
     }
 
-    public void setRiskScoreCVRM(String riskScoreCVRM) {
+    public void setRiskScoreCVRM(Integer riskScoreCVRM) {
         this.riskScoreCVRM = riskScoreCVRM;
     }
 
-    public String getMdrd() {
+    public Integer getMdrd() {
         return mdrd;
     }
 
-    public void setMdrd(String mdrd) {
+    public void setMdrd(Integer mdrd) {
         this.mdrd = mdrd;
     }
 
-    public String getGlucoseFasting() {
+    public Float getGlucoseFasting() {
         return glucoseFasting;
     }
 
-    public void setGlucoseFasting(String glucoseFasting) {
+    public void setGlucoseFasting(Float glucoseFasting) {
         this.glucoseFasting = glucoseFasting;
     }
 
-    public String getTotalCholesterol() {
+    public Float getTotalCholesterol() {
         return totalCholesterol;
     }
 
-    public void setTotalCholesterol(String totalCholesterol) {
+    public void setTotalCholesterol(Float totalCholesterol) {
         this.totalCholesterol = totalCholesterol;
     }
 
-    public String getSystolicBloodPressure() {
+    public Integer getSystolicBloodPressure() {
         return systolicBloodPressure;
     }
 
-    public void setSystolicBloodPressure(String systolicBloodPressure) {
+    public void setSystolicBloodPressure(Integer systolicBloodPressure) {
         this.systolicBloodPressure = systolicBloodPressure;
     }
 
-    public String getDiastolicBloodPressure() {
+    public Integer getDiastolicBloodPressure() {
         return diastolicBloodPressure;
     }
 
-    public void setDiastolicBloodPressure(String diastolicBloodPressure) {
+    public void setDiastolicBloodPressure(Integer diastolicBloodPressure) {
         this.diastolicBloodPressure = diastolicBloodPressure;
     }
 
-    public String getBmi() {
+    public Integer getBmi() {
         return bmi;
     }
 
-    public void setBmi(String bmi) {
+    public void setBmi(Integer bmi) {
         this.bmi = bmi;
     }
 
@@ -96,11 +96,11 @@ public class RawRow {
         this.smokingStatus = smokingStatus;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
