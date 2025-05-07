@@ -8,7 +8,7 @@ public class Node {
     private Node left;
     private Node right;
     // Возвращает либо left либо right
-    private Function<RawRow, Node> function;
+    private Function<Row, Node> function;
 
     public Integer getValue() {
         return value;
@@ -34,11 +34,11 @@ public class Node {
         this.right = right;
     }
 
-    public Function<RawRow, Node> getFunction() {
+    public Function<Row, Node> getFunction() {
         return function;
     }
 
-    public void setFunction(Function<RawRow, Node> function) {
+    public void setFunction(Function<Row, Node> function) {
         this.function = function;
     }
 }

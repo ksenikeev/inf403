@@ -25,7 +25,15 @@ public class RawRow {
     private String hypertension;
 
     public boolean badRecord() {
-        return true;
+        return riskScoreCVRM.isBlank() ||
+                mdrd.isBlank() ||
+                glucoseFasting.isBlank() ||
+                totalCholesterol.isBlank() ||
+                systolicBloodPressure.isBlank() ||
+                diastolicBloodPressure.isBlank() ||
+                bmi.isBlank() || psCVRM.isBlank() ||
+                smokingStatus.isBlank() ||
+                age.isBlank() || hypertension.isBlank();
     }
 
     public String getRiskScoreCVRM() {
