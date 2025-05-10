@@ -1,7 +1,5 @@
 package ru.itis.inf403.lab10.model;
 
-import java.util.Random;
-
 public class Ant extends Entity {
     public Ant() {}
 

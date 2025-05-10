@@ -1,16 +1,15 @@
 package ru.itis.inf403.lab2_08.net;
 
-import java.io.DataInputStream;
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
+
 /**
- * Общение в рамках договоренности о формате сообщейний (протокол)
- * |длина сообщения (4 байта)|сообщение заявленной длины|
+ * Общение в рамках договоренности о формате сообщений (протокол)
+ *  Каждое сообщение - строка\n
  */
-public class ServerMessenger {
+public class ServerLineMessenger {
     public static void main(String[] args) {
 
         try {
@@ -21,17 +20,15 @@ public class ServerMessenger {
             System.out.println(clientSocket.getPort());
             // Дождались клиента
             // Поток для чтения данных от клиента
-            DataInputStream is = new DataInputStream(clientSocket.getInputStream());
-            // Поток для передачи данных клиенту
-            DataOutputStream os = new DataOutputStream(clientSocket.getOutputStream());
+            BufferedReader reader = new BufferedReader(
+                    new InputStreamReader(clientSocket.getInputStream()));
+            BufferedWriter writer = new BufferedWriter(
+                    new OutputStreamWriter(clientSocket.getOutputStream()));
             while (true) {
 
 
                 // Читаем пакет от клиента
-                int size = is.readInt(); // размер сообщения
-                byte[] buffer = new byte[size]; // готовим буфер нужного размера
-                is.read(buffer); // читаем сообщение
-                String message = new String(buffer);
+                String message = reader.readLine();
                 System.out.println(message);
 
                 if(message.equals("exit")) {
@@ -43,11 +40,13 @@ public class ServerMessenger {
 
                 message = scanner.nextLine();
                 // измеряем кол-во байт в сообщении
+/*
                 size = message.getBytes().length;
 
                 os.writeInt(size); // заголовок пакета
                 os.write(message.getBytes()); // тело пакета
                 os.flush();
+*/
                 if(message.equals("exit")) {
                     break;
                 }

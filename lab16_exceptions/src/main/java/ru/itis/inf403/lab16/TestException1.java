@@ -1,7 +1,6 @@
 package ru.itis.inf403.lab16;
 
 import java.util.InputMismatchException;
-import java.util.Scanner;
 
 public class TestException1 {
     public static void main(String[] args) {
