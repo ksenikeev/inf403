@@ -64,8 +64,53 @@ public class DBUtils {
             throw new RuntimeException(e);
         }
 
-
         return result;
-
     }
+
+    public static long findPosition(int searchId) {
+        long position = 0;
+        boolean searchFlag = false;
+        // читаем файл, пока не найдем нужный id
+        File file = new File(TABLE);
+        if (!file.exists()) {
+            return -1;
+        }
+        try (DataInputStream dis = new DataInputStream(
+                new FileInputStream(file))) {
+            while (true) {
+                int id = dis.readInt();
+                byte flag = dis.readByte();
+                int size = dis.readInt();
+                dis.skipBytes(size);
+                if (flag == 1 && id == searchId) {
+                    searchFlag = true;
+                    break;
+                }
+                position += 4 + 1 + 4 + size;
+            }
+        } catch (EOFException e) {}
+        catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        if (searchFlag)
+            return position;
+        else
+            return -1;
+    }
+
+    public static void editStudent(Student student) {
+        long position = findPosition(student.getId());
+        // Меняем 1 байт в файле
+        File file = new File(TABLE);
+        try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
+            raf.seek(position + 4);
+            raf.write(0); // Write byte 0 (overwrites original byte at this offset).
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        appendObject(student);
+    }
+
 }
+
