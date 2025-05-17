@@ -105,6 +105,9 @@ public class DBUtils {
         try (RandomAccessFile raf = new RandomAccessFile(file, "rw")) {
             raf.seek(position + 4);
             raf.write(0); // Write byte 0 (overwrites original byte at this offset).
+            //raf.read();
+            //raf.readInt();
+            //raf.readByte();
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
