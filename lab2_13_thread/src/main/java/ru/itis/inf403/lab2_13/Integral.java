@@ -1,5 +1,6 @@
 package ru.itis.inf403.lab2_13;
 
+import java.util.Set;
 import java.util.function.Consumer;
 
 public class Integral implements Consumer<Double>{
