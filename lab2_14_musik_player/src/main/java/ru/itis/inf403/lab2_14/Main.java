@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Playlist playlist = new Playlist();
         playlist.load();
-        playlist.add(new Track(1, "Black eyes", "Chaikovskiy", ""));
+        playlist.add(new Track( "Black eyes", "Chaikovskiy", ""));
         playlist.save();
     }
 }

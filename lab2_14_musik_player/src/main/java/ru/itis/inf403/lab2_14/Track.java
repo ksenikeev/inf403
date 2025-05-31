@@ -10,8 +10,7 @@ public class Track implements Serializable {
 
     public Track(){}
 
-    public Track(Integer number, String name, String author, String path) {
-        this.number = number;
+    public Track(String name, String author, String path) {
         this.name = name;
         this.author = author;
         this.path = path;
