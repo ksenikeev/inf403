@@ -39,6 +39,7 @@ public class Playlist {
     public void add(Track track) {
         track.setNumber(playlist.size() + 1);
         playlist.add(track);
+        save();
     }
     public void showAll() {
         for(Track track : playlist) {
