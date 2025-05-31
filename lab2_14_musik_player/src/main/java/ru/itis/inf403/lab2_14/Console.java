@@ -43,7 +43,8 @@ public class Console {
             case 1:
                 playlist.showAll();
                 break;
-            case 2:
+            case 5:
+
 
         }
         return true;
