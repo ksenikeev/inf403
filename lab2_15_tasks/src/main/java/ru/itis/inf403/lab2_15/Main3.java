@@ -2,6 +2,8 @@ package ru.itis.inf403.lab2_15;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
 
 /**
  * Текст перевести в ByteArrayInputStream,
@@ -17,6 +19,19 @@ public class Main3 {
             baos.write(r);
         }
         return baos;
+    }
+
+    public static void main(String[] args) {
+        String text = "Hello, world";
+        ByteArrayInputStream byteArrayInputStream =
+                new ByteArrayInputStream(text.getBytes());
+        ByteArrayOutputStream byteArrayOutputStream = copy(byteArrayInputStream);
+        try (FileOutputStream fos = new FileOutputStream("text2.txt")) {
+            fos.write(byteArrayOutputStream.toByteArray());
+            fos.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 }
