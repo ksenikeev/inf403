@@ -5,7 +5,11 @@ import java.lang.reflect.Field;
 public class JSONMapper {
 
     public String toJson(Object obj) throws IllegalAccessException {
-        Field[] fields = obj.getClass().getFields();
+        Field[] fields = obj.getClass().getDeclaredFields();
+
+
+
+
         StringBuilder sb = new StringBuilder("{");
         for (Field f : fields) {
             // "fieldName":

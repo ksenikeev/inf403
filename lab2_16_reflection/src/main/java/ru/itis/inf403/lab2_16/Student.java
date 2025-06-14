@@ -7,9 +7,6 @@ public class Student {
     public String group;
     public Integer age;
 
-    public Student() {
-    }
-
     public Student(String lastName, String firstName, String middleName, String group, Integer age) {
         this.lastName = lastName;
         this.firstName = firstName;
